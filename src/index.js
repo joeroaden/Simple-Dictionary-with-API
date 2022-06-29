@@ -4,15 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import DictionaryService from "./dictionary-service.js";
 
+
 function clearFields() {
   $("#word").val("");
 }
 
 function getElements(response) {
-  if (response.main) {
-    $(".showDefinition").text(
-      `Definition:${response.meanings[0].definitions.definition}`
-    );
+  if (response) {
+    $(".showDefinition").text(`Definition:${response[0].meanings[0].definitions[0].definition}` );
+    // console.log(response)
   } else {
     $(".showErrors").text(`There was an error: ${response.message}`);
   }
