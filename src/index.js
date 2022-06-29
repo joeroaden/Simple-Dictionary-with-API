@@ -11,8 +11,10 @@ function clearFields() {
 
 function getElements(response) {
   if (response) {
+    $(".showPartOfSpeech").text(`Part of Speech:${response[0].meanings[0].partOfSpeech}` );
     $(".showDefinition").text(`Definition:${response[0].meanings[0].definitions[0].definition}` );
-    // console.log(response)
+    $(".showSynonym").text(`Synonyms:${response[0].meanings[0].synonyms}` );
+    
   } else {
     $(".showErrors").text(`There was an error: ${response.message}`);
   }
